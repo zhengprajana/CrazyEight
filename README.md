@@ -1,20 +1,36 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# 疯狂 8 点 (Crazy Eights) - 部署指南
 
-# Run and deploy your AI Studio app
+这是一个使用 React + Vite + Tailwind CSS 构建的精品纸牌游戏。
 
-This contains everything you need to run your app locally.
+## 如何部署到 GitHub 和 Vercel
 
-View your app in AI Studio: https://ai.studio/apps/e0753a9f-829f-4db2-ad35-f43dc753a21a
+### 第一步：同步到 GitHub
+1. 在 GitHub 上创建一个新的仓库（不要初始化 README）。
+2. 在本地终端执行以下命令：
+   ```bash
+   git init
+   git add .
+   git commit -m "Initial commit: Crazy Eights Game"
+   git branch -M main
+   git remote add origin https://github.com/您的用户名/仓库名.git
+   git push -u origin main
+   ```
 
-## Run Locally
+### 第二步：部署到 Vercel
+1. 登录 [Vercel 官网](https://vercel.com/)。
+2. 点击 **"Add New"** -> **"Project"**。
+3. 导入您刚刚创建的 GitHub 仓库。
+4. **关键步骤：配置环境变量**
+   - 在部署设置的 "Environment Variables" 部分，添加以下变量：
+     - `GEMINI_API_KEY`: 您的 Google Gemini API 密钥。
+5. 点击 **"Deploy"**。
 
-**Prerequisites:**  Node.js
+## 技术栈
+- **前端**: React 19
+- **动画**: Motion (framer-motion)
+- **样式**: Tailwind CSS 4
+- **图标**: Lucide React
+- **构建工具**: Vite
 
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## 环境变量说明
+本应用在构建时会读取 `GEMINI_API_KEY`。如果您在 Vercel 上部署，请务必在 Vercel 控制面板中设置该变量，否则涉及 AI 的功能可能无法正常工作。
